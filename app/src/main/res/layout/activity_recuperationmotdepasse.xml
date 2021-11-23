@@ -57,7 +57,7 @@
         />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonlog"
         android:layout_width="145dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"

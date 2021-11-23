@@ -57,6 +57,15 @@
         />
 
     <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:text="Identifant incorrect"
+        android:textColor="#FF0000"
+        android:visibility="invisible" />
+
+    <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,8 +86,17 @@
         android:background="@drawable/textlines"
         />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:text="Mot de passe incorrect"
+        android:textColor="#FF0000"
+        android:visibility="invisible" />
+
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonlog"
         android:layout_width="145dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"

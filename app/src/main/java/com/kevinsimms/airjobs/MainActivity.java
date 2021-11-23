@@ -36,7 +36,7 @@ private EditText motdepasselog;
 
     private Button buttonlog;
 
-    private String logi;
+    private String logs;
 
     private String ok;
 
@@ -106,13 +106,13 @@ private EditText motdepasselog;
 
                                     Modelcreeruncompte contenuNote = documentSnapshot.toObject(Modelcreeruncompte.class);
 
-                                    String getIdentifiant = contenuNote.getIdentifiant();
+                                    String getIdentifiant1 = contenuNote.getIdentifiant().trim();
 
-                                    logi = login.getText().toString();
+                                    logs = login.getText().toString().trim();
 
-                                    System.out.println("logi: "+logi + " getidentifiant:  " + getIdentifiant);
+                                    System.out.println("logi: "+logs + " getidentifiant:  " + getIdentifiant1);
 
-                                    if(getIdentifiant==logi) {
+                                    if(getIdentifiant1==logs) {
 
                                         ok = "good";
 

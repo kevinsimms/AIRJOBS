@@ -42,6 +42,8 @@ private EditText motdepasselog;
 
 
 
+
+
     private void init(){
 
         creeuncompte = findViewById(R.id.creeuncompte);
@@ -108,13 +110,13 @@ private EditText motdepasselog;
 
                                     logi = login.getText().toString();
 
-                                    System.out.println(logi + "   " + getIdentifiant);
+                                    System.out.println("logi: "+logi + " getidentifiant:  " + getIdentifiant);
 
-                                    if (getIdentifiant == logi) {
+                                    if(getIdentifiant==logi) {
 
                                         ok = "good";
 
-
+                                        System.out.println( " test  ");
 //                                    contenuNote.setDocumentId(documentSnapshot.getId());
 //
 //                                    String documentId= contenuNote.getDocumentId();
@@ -132,22 +134,28 @@ private EditText motdepasselog;
                         });
 
 
+                System.out.println("isok?:   " + ok);
 
 
-            if(ok=="good")
+                if(ok=="good")
+                {
+                    Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    alert1.setVisibility(View.VISIBLE);
+                }
 
-            {
-                Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
-            }
-            else
 
-            {
-                alert1.setVisibility(View.VISIBLE);
-            }
         }
 
-        });
 
+
+
+
+
+
+        });
 
 
 

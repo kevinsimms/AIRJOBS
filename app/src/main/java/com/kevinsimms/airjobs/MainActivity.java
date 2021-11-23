@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,11 +31,31 @@ private EditText motdepasselog;
 
     private TextView creeuncompte;
     private TextView motdepassoublie;
+    private TextView alert1;
 
 
     private Button buttonlog;
 
     private String logi;
+
+
+
+    private void init(){
+
+        creeuncompte = findViewById(R.id.creeuncompte);
+        motdepassoublie = findViewById(R.id.motdepassoublie);
+        buttonlog=findViewById(R.id.buttonlog);
+
+        login=findViewById(R.id.login);
+        motdepasselog=findViewById(R.id.motdepasselog);
+
+        db=FirebaseFirestore.getInstance();
+        noteCollectionRef = db.collection("notes");
+
+        alert1=findViewById(R.id.alert1);
+    }
+
+
 
 
     @Override
@@ -43,12 +64,7 @@ private EditText motdepasselog;
         setContentView(R.layout.activity_main);
 
 
-        creeuncompte = findViewById(R.id.creeuncompte);
-        motdepassoublie = findViewById(R.id.motdepassoublie);
-        buttonlog=findViewById(R.id.buttonlog);
-
-        login=findViewById(R.id.login);
-        motdepasselog=findViewById(R.id.motdepasselog);
+        init();
 
 
         creeuncompte.setOnClickListener(new View.OnClickListener() {
@@ -68,12 +84,17 @@ private EditText motdepasselog;
         });
 
 
+
+
+
         buttonlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
+                Log.i("MyActivity",  "hi " );
 
+                System.out.println("hello");
 
                 noteCollectionRef.get()
                         .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -93,25 +114,24 @@ private EditText motdepasselog;
 //                                    String documentId= contenuNote.getDocumentId();
 //                                    String titre = contenuNote.getTitre();
 //                                    String note = contenuNote.getNote();
+//
+//
+//                                         notes += documentId + "\nTitre : "+titre + "\nNote : " +note +"\n\n";
 
+                                        alert1.setVisibility(View.VISIBLE);
 
-                                        // notes += documentId + "\nTitre : "+titre + "\nNote : " +note +"\n\n";
                                         Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
 
                                     } else {
                                         Toast.makeText(MainActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+                                        Log.i("MyActivity", getIdentifiant+ " " +logi);
+
 
                                     }
                                     // tvSavedNote.setText(notes);
                                 }
                             }
                         });
-
-
-
-
-
-
 
 
 
@@ -129,6 +149,10 @@ private EditText motdepasselog;
 
 
     }
+
+
+
+
         public void openActivity2(){
             Intent intent = new Intent(this, Creeuncompte.class);
             startActivity(intent);

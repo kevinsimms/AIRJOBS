@@ -38,6 +38,8 @@ private EditText motdepasselog;
 
     private String logi;
 
+    private String ok;
+
 
 
     private void init(){
@@ -92,10 +94,6 @@ private EditText motdepasselog;
             public void onClick(View view) {
 
 
-                Log.i("MyActivity",  "hi " );
-
-                System.out.println("hello");
-
                 noteCollectionRef.get()
                         .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                             @Override
@@ -107,8 +105,16 @@ private EditText motdepasselog;
                                     Modelcreeruncompte contenuNote = documentSnapshot.toObject(Modelcreeruncompte.class);
 
                                     String getIdentifiant = contenuNote.getIdentifiant();
-                                    logi=login.toString();
+
+                                    logi = login.getText().toString();
+
+                                    System.out.println(logi + "   " + getIdentifiant);
+
                                     if (getIdentifiant == logi) {
+
+                                        ok = "good";
+
+
 //                                    contenuNote.setDocumentId(documentSnapshot.getId());
 //
 //                                    String documentId= contenuNote.getDocumentId();
@@ -117,14 +123,6 @@ private EditText motdepasselog;
 //
 //
 //                                         notes += documentId + "\nTitre : "+titre + "\nNote : " +note +"\n\n";
-
-                                        alert1.setVisibility(View.VISIBLE);
-
-                                        Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
-
-                                    } else {
-                                        Toast.makeText(MainActivity.this, "Fail", Toast.LENGTH_SHORT).show();
-                                        Log.i("MyActivity", getIdentifiant+ " " +logi);
 
 
                                     }
@@ -136,11 +134,18 @@ private EditText motdepasselog;
 
 
 
+            if(ok=="good")
 
-
-
-
+            {
+                Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
             }
+            else
+
+            {
+                alert1.setVisibility(View.VISIBLE);
+            }
+        }
+
         });
 
 

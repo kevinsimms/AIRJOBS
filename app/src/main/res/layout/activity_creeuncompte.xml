@@ -138,11 +138,20 @@
         android:ems="10"
         android:inputType="textPassword" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:text="le mot de passe n'est pas égale"
+        android:textColor="#FF0000"
+        android:visibility="invisible" />
+
     <Button
         android:id="@+id/buttonlog"
         android:layout_width="145dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="#348C72"
         android:fontFamily="@font/comfortaa_light"
         android:onClick="addcompte"

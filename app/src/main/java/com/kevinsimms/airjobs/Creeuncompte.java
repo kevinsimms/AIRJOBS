@@ -33,9 +33,9 @@ public class Creeuncompte extends AppCompatActivity {
     private DocumentReference noteRef;
     private CollectionReference noteCollectionRef;
 
-    private EditText Email, Identifiant, motdepasse;
+    private EditText Email, Identifiant, motdepasse, motdepasse2;
 
-    private TextView textView3, textView7;
+    private TextView textView3, textView7, textView4;
 
 
     private void init() {
@@ -43,6 +43,7 @@ public class Creeuncompte extends AppCompatActivity {
         Email = findViewById(R.id.login);
         Identifiant = findViewById(R.id.motdepasselog);
         motdepasse = findViewById(R.id.motdepasse);
+        motdepasse2 = findViewById(R.id.motdepasse2);
 
 
         db = FirebaseFirestore.getInstance();
@@ -50,6 +51,7 @@ public class Creeuncompte extends AppCompatActivity {
         noteCollectionRef = db.collection("notes");
 
         textView3 = findViewById(R.id.textView3);
+        textView4 = findViewById(R.id.textView4);
         textView7 = findViewById(R.id.textView7);
 
     }
@@ -70,14 +72,31 @@ public class Creeuncompte extends AppCompatActivity {
         String Email1 = Email.getText().toString().trim();
         String Identifiant1 = Identifiant.getText().toString().trim();
         String motdepasse1 = motdepasse.getText().toString().trim();
+        String motdepassebis = motdepasse2.getText().toString().trim();
 
 
         if (motdepasse1.length() < 6) {
-            textView3.setVisibility(View.VISIBLE);
-        }  if (!Patterns.EMAIL_ADDRESS.matcher(Email1).matches()) {
+            textView3.setVisibility(View.VISIBLE);}
+            else{textView3.setVisibility(View.INVISIBLE);}
+          if (!Patterns.EMAIL_ADDRESS.matcher(Email1).matches()) {
             textView7.setVisibility(View.VISIBLE);
 
-        } else {
+        } else if (!motdepasse1.equals(motdepassebis)) {
+            textView4.setVisibility(View.VISIBLE);
+        }
+
+        if (Identifiant1.equals("")) {
+            Identifiant.setError("Enter name");
+        } else if (Email1.equals("")) {
+            Email.setError("Enter Email");
+        } else if (motdepasse1.equals("")) {
+            motdepasse.setError("enterpassword");
+        } else if (motdepassebis.equals("")) {
+            motdepasse2.setError("enterpassword");
+        }
+
+
+        else {
 
 
 

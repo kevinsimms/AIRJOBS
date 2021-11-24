@@ -37,7 +37,7 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/login"
+        android:id="@+id/loginrecup"
         android:layout_width="310dp"
         android:layout_height="30dp"
 
@@ -148,7 +148,7 @@
         android:visibility="invisible" />
 
     <Button
-        android:id="@+id/buttonlog"
+        android:id="@+id/buttonrecup"
         android:layout_width="145dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"

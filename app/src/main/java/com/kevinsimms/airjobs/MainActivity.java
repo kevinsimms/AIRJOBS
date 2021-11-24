@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
@@ -16,15 +15,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,9 +57,9 @@ private EditText motdepasselog1;
 
         creeuncompte = findViewById(R.id.creeuncompte);
         motdepassoublie = findViewById(R.id.motdepassoublie);
-        buttonlog=findViewById(R.id.buttonlog);
+        buttonlog=findViewById(R.id.buttonrecup);
 
-        login1=findViewById(R.id.login);
+        login1=findViewById(R.id.loginrecup);
         motdepasselog1=findViewById(R.id.motdepasselog);
 
         db=FirebaseFirestore.getInstance();

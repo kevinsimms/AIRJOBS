@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
@@ -14,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,7 +23,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.util.Util;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -40,7 +40,7 @@ public class Creeuncompte extends AppCompatActivity {
 
     private void init() {
 
-        Email = findViewById(R.id.login);
+        Email = findViewById(R.id.loginrecup);
         Identifiant = findViewById(R.id.motdepasselog);
         motdepasse = findViewById(R.id.motdepasse);
         motdepasse2 = findViewById(R.id.motdepasse2);
@@ -81,9 +81,9 @@ public class Creeuncompte extends AppCompatActivity {
           if (!Patterns.EMAIL_ADDRESS.matcher(Email1).matches()) {
             textView7.setVisibility(View.VISIBLE);
 
-        } else if (!motdepasse1.equals(motdepassebis)) {
+        }  if (!motdepasse1.equals(motdepassebis)) {
             textView4.setVisibility(View.VISIBLE);
-        }
+        } else{textView4.setVisibility(View.INVISIBLE);}
 
         if (Identifiant1.equals("")) {
             Identifiant.setError("Enter name");
@@ -166,7 +166,7 @@ public class Creeuncompte extends AppCompatActivity {
 
 
 
-            Modelcreeruncompte contenuNote = new Modelcreeruncompte(Identifiant1, Email1, motdepasse1);
+           /** Modelcreeruncompte contenuNote = new Modelcreeruncompte(Identifiant1, Email1, motdepasse1);
 
             noteCollectionRef.add(contenuNote)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -175,10 +175,38 @@ public class Creeuncompte extends AppCompatActivity {
                             Toast.makeText(Creeuncompte.this, "Success", Toast.LENGTH_SHORT).show();
                             textView3.setVisibility(View.INVISIBLE);
                         }
-                    });
+                    });**/
 
         }
+
+
+
+        Log.i("Send email", "");
+
+        String[] TO = {"kpnsimms@gmail.com"};
+        //String[] CC = {"xyz@gmail.com"};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+
+
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        //emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Your subject");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Email message goes here");
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+            Log.i("Finished sending email...", "");
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(Creeuncompte.this,
+                    "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        }
+
     }
+
+
 
 
 

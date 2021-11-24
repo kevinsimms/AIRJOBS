@@ -29,7 +29,7 @@
         android:layout_marginLeft="33dp"
         android:layout_marginTop="60dp"
         android:fontFamily="@font/comfortaa_light"
-        android:text="Identifiant"
+        android:text="Email"
         android:textColor="#000000"
 
 
@@ -40,28 +40,25 @@
         android:layout_width="310dp"
         android:layout_height="30dp"
 
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textColor="@color/black"
-
         android:width="4dp"
+        android:background="@drawable/textlines"
         android:color="@color/black"
 
-
-        android:background="@drawable/textlines"
-
-
+        android:ems="10"
+        android:inputType="textPersonName"
 
 
+        android:onClick="btnLoginClick"
 
-        />
+
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/alert1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
-        android:text="Identifant incorrect"
+        android:text="Email  incorrect"
         android:textColor="#FF0000"
         android:visibility="invisible" />
 
@@ -87,7 +84,7 @@
         />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/alert2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
@@ -102,6 +99,7 @@
         android:layout_marginTop="50dp"
         android:backgroundTint="#348C72"
         android:fontFamily="@font/comfortaa_light"
+        android:onClick="btnLoginClick"
         android:text="Connexion"
         android:textColor="#000000"
         app:cornerRadius="20dp" />

@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -145,19 +147,56 @@ public class Creeuncompte extends AppCompatActivity {
 
 
 
-//            Modelcreeruncompte contenuNote = new Modelcreeruncompte(Email1, Identifiant1, motdepasse1);
-//
-//            noteCollectionRef.add(contenuNote)
-//                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                        @Override
-//                        public void onSuccess(DocumentReference documentReference) {
-//                            Toast.makeText(Creeuncompte.this, "Success", Toast.LENGTH_SHORT).show();
-//                            textView3.setVisibility(View.INVISIBLE);
-//                        }
-//                    });
+            Modelcreeruncompte contenuNote = new Modelcreeruncompte(Identifiant1, Email1, motdepasse1);
+
+            noteCollectionRef.add(contenuNote)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Toast.makeText(Creeuncompte.this, "Success", Toast.LENGTH_SHORT).show();
+                            textView3.setVisibility(View.INVISIBLE);
+                        }
+                    });
 
         }
     }
+
+
+
+
+
+
+
+//    private TextView.OnEditorActionListener editorActionListener = new TextView.OnEditorActionListener() {
+//        @Override
+//        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//            // Utilisation de actionId qui correspond à l'action ajouter dans le xml
+//            switch (actionId){
+//                case EditorInfo.IME_ACTION_DONE:
+//                    addcompte(v);
+//            }
+//            return false; // On laisse le return à false pour empêcher le comportement normal du clavier
+//        }
+//    };
+
+
+
+
+    /** 12 Ajout des boutons next et send à la place du retour chariot du keyboard **/
+    private TextView.OnEditorActionListener editorActionListener = new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            // Utilisation de actionId qui correspond à l'action ajouter dans le xml
+            switch (actionId){
+                case EditorInfo.IME_ACTION_DONE:
+                    addcompte(v);
+            }
+            return false; // On laisse le return à false pour empêcher le comportement normal du clavier
+        }
+    };
+
+
+
 
 }
 

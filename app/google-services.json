@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "300277170849",
-    "project_id": "armius-5a8fc",
-    "storage_bucket": "armius-5a8fc.appspot.com"
+    "project_number": "248825084374",
+    "project_id": "airjobs-13de9",
+    "storage_bucket": "airjobs-13de9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:300277170849:android:028d3692f1534a5d64a6e0",
+        "mobilesdk_app_id": "1:248825084374:android:8657ee810787f5838dcc77",
         "android_client_info": {
-          "package_name": "com.kevinsimms.airjobs"
+          "package_name": "com.airjob.airjobs"
         }
       },
       "oauth_client": [
         {
-          "client_id": "300277170849-uag5emnjflj76bv8gv0g1o8g4uaim67q.apps.googleusercontent.com",
+          "client_id": "248825084374-j22r255nv9k9r9go5b6r32e6nb1cri0k.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCLSakLwYgFFEGKoIHscgaf81p8DTCwlLI"
+          "current_key": "AIzaSyBI7ZVHhA0FwzUZHXbTkn1Xncv6k_xGVHc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "300277170849-uag5emnjflj76bv8gv0g1o8g4uaim67q.apps.googleusercontent.com",
+              "client_id": "248825084374-j22r255nv9k9r9go5b6r32e6nb1cri0k.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
